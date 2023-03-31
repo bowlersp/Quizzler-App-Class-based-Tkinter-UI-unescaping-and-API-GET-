@@ -54,29 +54,13 @@ class QuizInterface:
     
     # MY VERSION OF CODE BELOW
     
-    def true_pressed(self):
-        is_right = self.quiz.check_answer("True")
-        self.give_feedback(is_right)
-
-    def false_pressed(self):
-        is_wrong = self.quiz.check_answer("False")
-        self.give_feedback(is_wrong)
-
-    def give_feedback(self, is_right):
-        if is_right:
-            self.canvas.config(bg="green")
-        else:
-            self.canvas.config(bg="red")
-        self.window.after(1000, self.get_next_question)
-
-    #INSTRUCTORS VERSION OF CODE BELOW
-    
     # def true_pressed(self):
-    #     self.give_feedback(self.quiz.check_answer("True"))
+    #     is_right = self.quiz.check_answer("True")
+    #     self.give_feedback(is_right)
 
     # def false_pressed(self):
-    #     is_right = self.quiz.check_answer("False")
-    #     self.give_feedback(is_right)
+    #     is_wrong = self.quiz.check_answer("False")
+    #     self.give_feedback(is_wrong)
 
     # def give_feedback(self, is_right):
     #     if is_right:
@@ -84,4 +68,19 @@ class QuizInterface:
     #     else:
     #         self.canvas.config(bg="red")
     #     self.window.after(1000, self.get_next_question)
+
+    #INSTRUCTORS VERSION OF CODE BELOW
+    
+    def true_pressed(self):
+        self.give_feedback(self.quiz.check_answer("True"))
+
+    def false_pressed(self):
+        self.give_feedback(self.quiz.check_answer("False"))
+
+    def give_feedback(self, is_right):
+        if is_right == True:
+            self.canvas.config(bg="green")
+        else:
+            self.canvas.config(bg="red")
+        self.window.after(1000, self.get_next_question)
 
